@@ -1,0 +1,14 @@
+[workspace]
+authors = ["sounddrill31 <84176052+sounddrill31@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "adalm1000"
+platforms = ["win-64", "linux-64", "osx-64"]
+version = "0.1.0"
+preview = ["pixi-build"]
+
+[tasks]
+start = "python rgb_clock_test.py"
+setup_ar = "python -m zipfile -e ./whl/ar_iitm-1.0-py3-none-any.whl ."
+
+[dependencies]
+libsmu = ">=1.0.3,<2"
