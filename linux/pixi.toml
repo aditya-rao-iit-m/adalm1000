@@ -1,0 +1,23 @@
+[workspace]
+authors = ["sounddrill31 <84176052+sounddrill31@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "adalm1000"
+platforms = ["win-64", "linux-64", "osx-64"]
+version = "0.1.0"
+preview = ["pixi-build"]
+
+[tasks]
+start = "python rgb_clock_test.py"
+setup_ar = "python -m zipfile -e ./whl/ar_iitm-1.0-py3-none-any.whl ."
+1hz = "python rgb_clock_test.py"
+
+[activation]
+scripts = ["startup_scripts/linux_setup.sh"]
+
+[target.win-64.activation]
+# Overwrite activation scripts only for windows
+scripts = ["startup_scripts/win_setup.bat"]
+
+[dependencies]
+libsmu = ">=1.0.3,<2"
+python = ">=3.6,<3.7"
